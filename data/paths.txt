@@ -1,0 +1,8 @@
+data/gallery\object1.jpeg
+data/gallery\object2.jpeg
+data/gallery\object3.jpeg
+data/gallery\object4.jpeg
+data/gallery\person1.jpg
+data/gallery\person2.jpeg
+data/gallery\person3.jpeg
+data/gallery\person4.jpeg

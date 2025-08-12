@@ -1,0 +1,10 @@
+torch>=1.13.1
+transformers>=4.30.0
+ftfy
+tqdm
+faiss-cpu
+Pillow
+fastapi
+uvicorn[standard]
+python-multipart
+numpy
