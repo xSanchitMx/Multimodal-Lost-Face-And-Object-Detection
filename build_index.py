@@ -29,4 +29,3 @@ faiss.write_index(index, index_path)
 with open(paths_file, "w") as f:
     f.write("\n".join(image_paths))
 
-print("Index built.")
