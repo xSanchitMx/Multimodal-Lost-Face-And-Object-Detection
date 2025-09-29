@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAISS Query Uploader</title>
+</head>
+<body>
+    <h2>Add a New Query</h2>
+
+    <!-- Text Query Form -->
+    <form method="POST">
+        <label for="text_query">Enter Text Query:</label><br>
+        <input type="text" id="text_query" name="text_query">
+        <button type="submit">Add Text</button>
+    </form>
+
+    <br><br>
+
+    <!-- Image Query Form -->
+    <form method="POST" enctype="multipart/form-data">
+        <label for="image_query">Upload Image:</label><br>
+        <input type="file" id="image_query" name="image_query" accept="image/*">
+        <button type="submit">Upload Image</button>
+    </form>
+</body>
+</html>
