@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detection Alerts</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
+    .alert { background: white; padding: 10px; margin: 10px 0; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .alert img { max-width: 200px; border-radius: 4px; }
+    .person { font-weight: bold; color: #c00; }
+    .time { color: #555; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h1>Detection Alerts</h1>
+  <div id="alerts-container">
+    <p>Loading alerts...</p>
+  </div>
+
+  <script>
+    async function fetchAlerts() {
+      try {
+        const response = await fetch('/api/alerts');
+        const alerts = await response.json();
+
+        const container = document.getElementById('alerts-container');
+        container.innerHTML = ''; // clear old alerts
+
+        if (alerts.length === 0) {
+          container.innerHTML = '<p>No alerts yet.</p>';
+          return;
+        }
+
+        alerts.slice().reverse().forEach(alert => { // newest first
+          const div = document.createElement('div');
+          div.className = 'alert';
+          div.innerHTML = `
+            <div class="person">${alert.person}</div>
+            <div class="time">${alert.time}</div>
+            <img src="/alerts/${alert.image.split('/').pop()}" alt="alert image">
+          `;
+          container.appendChild(div);
+        });
+
+      } catch (err) {
+        console.error('Error fetching alerts:', err);
+      }
+    }
+
+    // Fetch alerts every 3 seconds
+    fetchAlerts();
+    setInterval(fetchAlerts, 3000);
+  </script>
+</body>
+</html>
